@@ -1,8 +1,8 @@
 "use client";
 
-import { FC, useState } from 'react';
-import Image from 'next/image';
-import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
+import { FC, useState } from "react";
+import Image from "next/image";
+import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 
 // Define the Slide type for TypeScript
 type Slide = {
@@ -10,6 +10,7 @@ type Slide = {
   title: string;
   description: string;
   highlights: { subtitle: string; text: string }[];
+  testimonial?: { subtitle: string; quote: string; author: string; position: string }; // Testimonial is optional
   image: string;
 };
 
@@ -67,7 +68,17 @@ const slides: Slide[] = [
         subtitle: "Secure Printing",
         text: "Our printers are configured with the latest security features to protect your company's data and prevent back-door access.",
       },
+      {
+        subtitle: "Exclusive Canon Dealers",
+        text: "We are the Premier Canon Copier dealer of the North Shore",
+      },
     ],
+    testimonial: {
+      subtitle: "Here is what our customers have to say :",
+      quote: "I don’t worry about our printers working — I know they will work. It is ‘set-it-and-forget it’ printing, and I like that.",
+      author: "KEN DOWNS",
+      position: "Vice President IT — Marine Credit Union",
+    },
     image: "/printer.jpg", // Use an appropriate printer icon image
   },
 ];
@@ -138,6 +149,16 @@ const Slides: FC = () => {
             </div>
           ))}
 
+          {/* Testimonial */}
+          {slides[currentSlide]?.testimonial && (
+            <div className="bg-gray-700 p-4 rounded-lg mt-6 border-4 border-orange-500 text-white">
+              <p className="text-lg sm:text-xl font-semibold text-[#00A651] mb-2">{slides[currentSlide]?.testimonial?.subtitle}</p>
+              <p className="italic text-lg">“{slides[currentSlide]?.testimonial?.quote}”</p>
+              <p className="mt-2 font-bold">{slides[currentSlide]?.testimonial?.author}</p>
+              <p className="text-sm text-gray-300">{slides[currentSlide]?.testimonial?.position}</p>
+            </div>
+          )}
+
           {/* Closing Line */}
           <p className="text-green-400 font-bold mt-6 text-sm sm:text-base">
             I truly appreciate that you took the time to check out my Digital Business Card!
@@ -149,6 +170,8 @@ const Slides: FC = () => {
 };
 
 export default Slides;
+
+
 
 
 
