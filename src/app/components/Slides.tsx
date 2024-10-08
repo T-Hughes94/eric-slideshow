@@ -74,12 +74,44 @@ const slides: Slide[] = [
       },
     ],
     testimonial: {
-      subtitle: "Here is what our customers have to say :",
+      subtitle: "Here is what our customers have to say",
       quote: "I don’t worry about our printers working — I know they will work. It is ‘set-it-and-forget it’ printing, and I like that.",
       author: "KEN DOWNS",
       position: "Vice President IT — Marine Credit Union",
     },
     image: "/printer.jpg", // Use an appropriate printer icon image
+  },
+  {
+    id: 3,
+    title: "Digital Transformation Solutions",
+    description: `
+      Leverage Technology to Manage your Documents and Data. EO Johnson helps your business leverage technology to efficiently manage your information as it moves through your organization.
+    `,
+    highlights: [
+      {
+        subtitle: "Secure Document Management",
+        text: "End-to-end solutions for workflow automation, archival, retention, security, and audit reporting/compliance.",
+      },
+      {
+        subtitle: "Digital Mailroom Services",
+        text: "Create a digital mailroom so employees can work from anywhere and still receive their inbound paper mail electronically.",
+      },
+      {
+        subtitle: "Document Scanning Services",
+        text: "Transform physical or virtual data into searchable and secure electronic documents for greater access and improved productivity.",
+      },
+      {
+        subtitle: "Business Consulting & Process Improvement",
+        text: "We help improve your business processes and workflows, reducing errors, waste, and enhancing performance.",
+      },
+    ],
+    testimonial: {
+      subtitle: "Here is what our customers have to say",
+      quote: "They are business partners rather than a contracted vendor. Our data is now more usable, saving us time and effort…enabling us to effectively retain decades of information we would not have been able to manage on our own.",
+      author: "CITY OF ROCHESTER",
+      position: "Minnesota",
+    },
+    image: "/icon2.jpg", // Placeholder for relevant image
   },
 ];
 
@@ -151,7 +183,7 @@ const Slides: FC = () => {
 
           {/* Testimonial */}
           {slides[currentSlide]?.testimonial && (
-            <div className="bg-gray-700 p-4 rounded-lg mt-6 border-4 border-orange-500 text-white">
+            <div className="bg-gray-700 p-4 rounded-lg mt-6 text-white">
               <p className="text-lg sm:text-xl font-semibold text-[#00A651] mb-2">{slides[currentSlide]?.testimonial?.subtitle}</p>
               <p className="italic text-lg">“{slides[currentSlide]?.testimonial?.quote}”</p>
               <p className="mt-2 font-bold">{slides[currentSlide]?.testimonial?.author}</p>
@@ -170,6 +202,7 @@ const Slides: FC = () => {
 };
 
 export default Slides;
+
 
 
 
