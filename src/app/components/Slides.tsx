@@ -4,8 +4,17 @@ import { FC, useState } from 'react';
 import Image from 'next/image';
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 
+// Define the Slide type for TypeScript
+type Slide = {
+  id: number;
+  title: string;
+  description: string;
+  highlights: { subtitle: string; text: string }[];
+  image: string;
+};
+
 // Array of slide data
-const slides = [
+const slides: Slide[] = [
   {
     id: 1,
     title: "Welcome to My Page!",
@@ -39,6 +48,28 @@ const slides = [
     ],
     image: "/eric-nicholson.jpeg",
   },
+  {
+    id: 2,
+    title: "EO Johnson Multifunction Printers",
+    description: `
+      EO Johnson’s multifunction printers are budget-friendly, easy to use, and secure. We ensure our clients have access to modern and reliable devices.
+    `,
+    highlights: [
+      {
+        subtitle: "Budget-Friendly",
+        text: "We help businesses find cost-effective solutions that fit any budget while maximizing print capabilities.",
+      },
+      {
+        subtitle: "Easy-to-Use",
+        text: "With advanced interfaces and controls, we provide training so your team can make the most out of the technology.",
+      },
+      {
+        subtitle: "Secure Printing",
+        text: "Our printers are configured with the latest security features to protect your company's data and prevent back-door access.",
+      },
+    ],
+    image: "/printer.jpg", // Use an appropriate printer icon image
+  },
 ];
 
 const Slides: FC = () => {
@@ -71,7 +102,7 @@ const Slides: FC = () => {
         <div className="absolute top-4 left-4">
           <div className="w-20 h-20 sm:w-32 sm:h-32 rounded-full overflow-hidden border-4 border-orange-500">
             <Image
-              src={slides[currentSlide].image}
+              src={slides[currentSlide].image ?? "/fallback-image.png"}
               alt={slides[currentSlide].title}
               width={128}
               height={128}
@@ -118,9 +149,6 @@ const Slides: FC = () => {
 };
 
 export default Slides;
-
-
-
 
 
 
