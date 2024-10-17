@@ -232,11 +232,11 @@ const Slides: FC = () => {
             <p className="text-gray-300 mb-4">Feel free to reach out to me on LinkedIn or send an email directly.</p>
 
             <div className="flex justify-center space-x-6 mb-6">
-              <Link href="https://www.linkedin.com/in/eric-profile" passHref>
+              <Link href="https://www.linkedin.com/in/eric-n-121126114/" passHref>
                 <FaLinkedin className="text-[#00A651] hover:text-white transition-all duration-300" size={40} />
               </Link>
-              <Link href="mailto:eric@example.com" passHref>
-                <p className="text-lg text-[#00A651] hover:text-white transition-all duration-300">eric@example.com</p>
+              <Link href="mailto:enicholson@eojohnson.com " passHref>
+                <p className="text-lg text-[#00A651] hover:text-white transition-all duration-300">enicholson@eojohnson.com</p>
               </Link>
             </div>
 
@@ -298,6 +298,10 @@ const Slides: FC = () => {
                 <p className="text-sm text-gray-300">{slides[currentSlide]?.testimonial?.position}</p>
               </div>
             )}
+              <p className="text-green-400 font-bold mt-6 text-sm sm:text-base">
+                 &copy; {new Date().getFullYear()} Eric Nicholson. All rights reserved.
+              </p>
+
           </div>
         )}
       </div>
