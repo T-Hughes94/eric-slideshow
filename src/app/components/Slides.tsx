@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { FaArrowLeft, FaArrowRight, FaLinkedin } from "react-icons/fa";
 import dynamic from 'next/dynamic';
-import ContactForm from './ContactForm'; // Import ContactForm
+
 
 // Define the Slide type for TypeScript
 type Slide = {
@@ -16,6 +16,7 @@ type Slide = {
   image?: string;
 };
 
+const ContactForm = dynamic(() => import('./ContactForm'), {ssr:false});
 const ChatBubble = dynamic(() => import('./ChatBubble'), { ssr: false });
 
 // Array of slide data
