@@ -1,10 +1,10 @@
-"use client"
-
+"use client";
 import { FC, useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { FaArrowLeft, FaArrowRight, FaLinkedin } from "react-icons/fa";
-import ChatBubble from './ChatBubble';
+import dynamic from 'next/dynamic';
+import ContactForm from './ContactForm'; // Import ContactForm
 
 // Define the Slide type for TypeScript
 type Slide = {
@@ -15,6 +15,8 @@ type Slide = {
   testimonial?: { subtitle: string; quote: string; author: string; position: string }; // Testimonial is optional
   image?: string;
 };
+
+const ChatBubble = dynamic(() => import('./ChatBubble'), { ssr: false });
 
 // Array of slide data
 const slides: Slide[] = [
@@ -161,7 +163,6 @@ const slides: Slide[] = [
     id: 5,
     title: "Get in Touch with Eric",
   },
-  
 ];
 
 
@@ -219,7 +220,9 @@ const Slides: FC = () => {
                 width={128}
                 height={128}
                 className="object-cover"
-              />
+                priority={currentSlide === 0} // Prioritize loading the first slide image only
+                loading={currentSlide !== 0 ? "lazy" : "eager"} // Lazy load for other slides
+             />
             </div>
           </div>
         )}
@@ -240,35 +243,8 @@ const Slides: FC = () => {
               </Link>
             </div>
 
-            {/* Contact Form */}
-            <form className="bg-gray-700 p-8 rounded-lg shadow-md space-y-4">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <input
-                  type="text"
-                  placeholder="Your Name"
-                  className="w-full p-3 rounded-md focus:outline-none focus:ring-2 focus:ring-[#00A651]"
-                  required
-                />
-                <input
-                  type="email"
-                  placeholder="Your Email"
-                  className="w-full p-3 rounded-md focus:outline-none focus:ring-2 focus:ring-[#00A651]"
-                  required
-                />
-              </div>
-              <textarea
-                placeholder="Your Message"
-                rows={4}
-                className="w-full p-3 rounded-md focus:outline-none focus:ring-2 focus:ring-[#00A651]"
-                required
-              ></textarea>
-              <button
-                type="submit"
-                className="w-full bg-[#00A651] text-white p-3 rounded-md hover:bg-orange-500 transition-all duration-300"
-              >
-                Send Message
-              </button>
-            </form>
+            {/* Use the ContactForm component */}
+            <ContactForm />
           </div>
         ) : (
           <div className="text-left px-4 sm:px-8 mt-8 ml-24 sm:ml-40 overflow-y-auto h-full pb-6">
@@ -312,6 +288,7 @@ const Slides: FC = () => {
 };
 
 export default Slides;
+
 
 
 
