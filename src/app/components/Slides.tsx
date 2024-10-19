@@ -233,10 +233,10 @@ const Slides: FC = () => {
 
             <div className="flex justify-center space-x-6 mb-6">
               <Link href="https://www.linkedin.com/in/eric-n-121126114/" passHref>
-                <FaLinkedin className="text-[#00A651] hover:text-white transition-all duration-300" size={40} />
+                <FaLinkedin className="text-[#00A651] hover:text-orange-500 transition-all duration-300" size={40} />
               </Link>
               <Link href="mailto:enicholson@eojohnson.com " passHref>
-                <p className="text-lg text-[#00A651] hover:text-white transition-all duration-300">enicholson@eojohnson.com</p>
+                <p className="text-lg text-[#00A651] hover:text-orange-500 transition-all duration-300">enicholson@eojohnson.com</p>
               </Link>
             </div>
 
@@ -264,7 +264,7 @@ const Slides: FC = () => {
               ></textarea>
               <button
                 type="submit"
-                className="w-full bg-[#00A651] text-white p-3 rounded-md hover:bg-opacity-80 transition-all duration-300"
+                className="w-full bg-[#00A651] text-white p-3 rounded-md hover:bg-orange-500 transition-all duration-300"
               >
                 Send Message
               </button>
