@@ -244,7 +244,7 @@ const Slides: FC = () => {
               </Link>
             </div>
 
-            {/* Use the ContactForm component */}
+           
             <ContactForm />
           </div>
         ) : (

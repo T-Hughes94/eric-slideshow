@@ -12,7 +12,7 @@ const ChatBubble: React.FC = () => {
   return (
     <>
       <div
-        className="fixed bottom-10 right-10 w-16 h-16 bg-green-500 rounded-full flex items-center justify-center text-white cursor-pointer hover:scale-110 ease-in duration-200"
+        className="fixed bottom-10 right-10 w-16 h-16 bg-green-500 rounded-full flex items-center justify-center text-white cursor-pointer hover:scale-110 hover:bg-orange-500 ease-in duration-200"
         onClick={openModal}
       >
         <FaCommentDots size={38} />
