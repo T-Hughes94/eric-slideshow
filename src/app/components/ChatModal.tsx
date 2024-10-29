@@ -23,7 +23,7 @@ const ChatModal: React.FC<ModalProps> = ({ onClose }) => {
         >
           X
         </button>
-        <h2 className="text-xl font-bold mb-4">Contact Us</h2>
+        <h2 className="text-xl font-bold mb-4">Contact Eric</h2>
         <form>
           {/* Contact form fields */}
           <div className="mb-4">
